@@ -14,6 +14,8 @@
 		CDE5590A1EA5612A006EBAD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDE559091EA5612A006EBAD9 /* Assets.xcassets */; };
 		CDE5590D1EA5612A006EBAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE5590B1EA5612A006EBAD9 /* LaunchScreen.storyboard */; };
 		CDE559161EA56244006EBAD9 /* NSString+String.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559151EA56244006EBAD9 /* NSString+String.m */; };
+		CDE559191EA57215006EBAD9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559181EA57215006EBAD9 /* Person.m */; };
+		CDE5591C1EA573C4006EBAD9 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5591B1EA573C4006EBAD9 /* Employee.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		CDE5590E1EA5612A006EBAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDE559141EA56244006EBAD9 /* NSString+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+String.h"; sourceTree = "<group>"; };
 		CDE559151EA56244006EBAD9 /* NSString+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+String.m"; sourceTree = "<group>"; };
+		CDE559171EA57215006EBAD9 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		CDE559181EA57215006EBAD9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		CDE5591A1EA573C4006EBAD9 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		CDE5591B1EA573C4006EBAD9 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,10 @@
 				CDE559011EA5612A006EBAD9 /* AppDelegate.m */,
 				CDE559141EA56244006EBAD9 /* NSString+String.h */,
 				CDE559151EA56244006EBAD9 /* NSString+String.m */,
+				CDE559171EA57215006EBAD9 /* Person.h */,
+				CDE5591A1EA573C4006EBAD9 /* Employee.h */,
+				CDE5591B1EA573C4006EBAD9 /* Employee.m */,
+				CDE559181EA57215006EBAD9 /* Person.m */,
 				CDE559031EA5612A006EBAD9 /* ViewController.h */,
 				CDE559041EA5612A006EBAD9 /* ViewController.m */,
 				CDE559061EA5612A006EBAD9 /* Main.storyboard */,
@@ -158,6 +168,8 @@
 			files = (
 				CDE559051EA5612A006EBAD9 /* ViewController.m in Sources */,
 				CDE559021EA5612A006EBAD9 /* AppDelegate.m in Sources */,
+				CDE559191EA57215006EBAD9 /* Person.m in Sources */,
+				CDE5591C1EA573C4006EBAD9 /* Employee.m in Sources */,
 				CDE559161EA56244006EBAD9 /* NSString+String.m in Sources */,
 				CDE558FF1EA5612A006EBAD9 /* main.m in Sources */,
 			);

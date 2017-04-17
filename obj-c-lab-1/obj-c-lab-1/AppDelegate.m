@@ -21,9 +21,9 @@
     
     NSString *name =[[NSString alloc] init];
     
-    name = @"Castro";
+    name = @"Castro pants are a joy.";
     
-    NSMutableArray *letterInName = [name toArray];
+    NSArray *letterInName = [name toArray];
     
     NSString *reverseString = [NSString reversedString:name];
     
