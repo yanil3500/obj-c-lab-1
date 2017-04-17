@@ -10,14 +10,4 @@
 
 @interface Employee : Person
 
-
-
-//Create a subclass of Person called Employee, and add the following properties to Employee:
-//employeeNumber
-//yearsEmployed
-//managerName
-
-@property(strong, nonatomic)NSNumber *employeeNumber;
-@property(strong, nonatomic)NSNumber *yearsEmployed;
-@property(strong, nonatomic)NSString *managerName;
 @end
