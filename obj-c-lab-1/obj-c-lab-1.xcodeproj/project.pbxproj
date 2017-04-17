@@ -35,6 +35,7 @@
 		CDE559181EA57215006EBAD9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		CDE5591A1EA573C4006EBAD9 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
 		CDE5591B1EA573C4006EBAD9 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		CDE5591D1EA576D8006EBAD9 /* PersonQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonQueue.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 				CDE559151EA56244006EBAD9 /* NSString+String.m */,
 				CDE559171EA57215006EBAD9 /* Person.h */,
 				CDE5591A1EA573C4006EBAD9 /* Employee.h */,
+				CDE5591D1EA576D8006EBAD9 /* PersonQueue.h */,
 				CDE5591B1EA573C4006EBAD9 /* Employee.m */,
 				CDE559181EA57215006EBAD9 /* Person.m */,
 				CDE559031EA5612A006EBAD9 /* ViewController.h */,
