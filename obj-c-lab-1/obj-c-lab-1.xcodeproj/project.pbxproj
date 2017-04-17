@@ -16,6 +16,7 @@
 		CDE559161EA56244006EBAD9 /* NSString+String.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559151EA56244006EBAD9 /* NSString+String.m */; };
 		CDE559191EA57215006EBAD9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559181EA57215006EBAD9 /* Person.m */; };
 		CDE5591C1EA573C4006EBAD9 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE5591B1EA573C4006EBAD9 /* Employee.m */; };
+		CDE559231EA57A50006EBAD9 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559221EA57A50006EBAD9 /* Queue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		CDE5591A1EA573C4006EBAD9 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
 		CDE5591B1EA573C4006EBAD9 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 		CDE5591D1EA576D8006EBAD9 /* PersonQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonQueue.h; sourceTree = "<group>"; };
+		CDE559211EA57A50006EBAD9 /* Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
+		CDE559221EA57A50006EBAD9 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				CDE559171EA57215006EBAD9 /* Person.h */,
 				CDE5591A1EA573C4006EBAD9 /* Employee.h */,
 				CDE5591D1EA576D8006EBAD9 /* PersonQueue.h */,
+				CDE559211EA57A50006EBAD9 /* Queue.h */,
+				CDE559221EA57A50006EBAD9 /* Queue.m */,
 				CDE5591B1EA573C4006EBAD9 /* Employee.m */,
 				CDE559181EA57215006EBAD9 /* Person.m */,
 				CDE559031EA5612A006EBAD9 /* ViewController.h */,
@@ -168,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE559231EA57A50006EBAD9 /* Queue.m in Sources */,
 				CDE559051EA5612A006EBAD9 /* ViewController.m in Sources */,
 				CDE559021EA5612A006EBAD9 /* AppDelegate.m in Sources */,
 				CDE559191EA57215006EBAD9 /* Person.m in Sources */,

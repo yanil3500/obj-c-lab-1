@@ -21,7 +21,7 @@
     
     NSString *name =[[NSString alloc] init];
     
-    name = @"Castro pants are a joy.";
+    name = @"Castro pants are a joy";
     
     NSArray *letterInName = [name toArray];
     
