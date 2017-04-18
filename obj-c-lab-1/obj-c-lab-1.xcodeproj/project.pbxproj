@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD1CCED01EA6879F0074D107 /* EmployeeDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1CCECF1EA6879F0074D107 /* EmployeeDatabase.m */; };
 		CDE558FF1EA5612A006EBAD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE558FE1EA5612A006EBAD9 /* main.m */; };
 		CDE559021EA5612A006EBAD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559011EA5612A006EBAD9 /* AppDelegate.m */; };
 		CDE559051EA5612A006EBAD9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559041EA5612A006EBAD9 /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD1CCECE1EA6879F0074D107 /* EmployeeDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeDatabase.h; sourceTree = "<group>"; };
+		CD1CCECF1EA6879F0074D107 /* EmployeeDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeDatabase.m; sourceTree = "<group>"; };
 		CDE558FA1EA5612A006EBAD9 /* obj-c-lab-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "obj-c-lab-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE558FE1EA5612A006EBAD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDE559001EA5612A006EBAD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +55,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD1CCED11EA687B50074D107 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				CDE5591D1EA576D8006EBAD9 /* PersonQueue.h */,
+				CDE559211EA57A50006EBAD9 /* Queue.h */,
+				CDE559221EA57A50006EBAD9 /* Queue.m */,
+				CDE5591B1EA573C4006EBAD9 /* Employee.m */,
+				CDE559181EA57215006EBAD9 /* Person.m */,
+				CD1CCECE1EA6879F0074D107 /* EmployeeDatabase.h */,
+				CD1CCECF1EA6879F0074D107 /* EmployeeDatabase.m */,
+				CDE559171EA57215006EBAD9 /* Person.h */,
+				CDE5591A1EA573C4006EBAD9 /* Employee.h */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		CD1CCED21EA687D90074D107 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				CDE559031EA5612A006EBAD9 /* ViewController.h */,
+				CDE559041EA5612A006EBAD9 /* ViewController.m */,
+				CDE559061EA5612A006EBAD9 /* Main.storyboard */,
+				CDE559091EA5612A006EBAD9 /* Assets.xcassets */,
+				CDE5590B1EA5612A006EBAD9 /* LaunchScreen.storyboard */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		CDE558F11EA56129006EBAD9 = {
 			isa = PBXGroup;
 			children = (
@@ -75,18 +106,8 @@
 				CDE559011EA5612A006EBAD9 /* AppDelegate.m */,
 				CDE559141EA56244006EBAD9 /* NSString+String.h */,
 				CDE559151EA56244006EBAD9 /* NSString+String.m */,
-				CDE559171EA57215006EBAD9 /* Person.h */,
-				CDE5591A1EA573C4006EBAD9 /* Employee.h */,
-				CDE5591D1EA576D8006EBAD9 /* PersonQueue.h */,
-				CDE559211EA57A50006EBAD9 /* Queue.h */,
-				CDE559221EA57A50006EBAD9 /* Queue.m */,
-				CDE5591B1EA573C4006EBAD9 /* Employee.m */,
-				CDE559181EA57215006EBAD9 /* Person.m */,
-				CDE559031EA5612A006EBAD9 /* ViewController.h */,
-				CDE559041EA5612A006EBAD9 /* ViewController.m */,
-				CDE559061EA5612A006EBAD9 /* Main.storyboard */,
-				CDE559091EA5612A006EBAD9 /* Assets.xcassets */,
-				CDE5590B1EA5612A006EBAD9 /* LaunchScreen.storyboard */,
+				CD1CCED11EA687B50074D107 /* model */,
+				CD1CCED21EA687D90074D107 /* view */,
 				CDE5590E1EA5612A006EBAD9 /* Info.plist */,
 				CDE558FD1EA5612A006EBAD9 /* Supporting Files */,
 			);
@@ -175,6 +196,7 @@
 			files = (
 				CDE559231EA57A50006EBAD9 /* Queue.m in Sources */,
 				CDE559051EA5612A006EBAD9 /* ViewController.m in Sources */,
+				CD1CCED01EA6879F0074D107 /* EmployeeDatabase.m in Sources */,
 				CDE559021EA5612A006EBAD9 /* AppDelegate.m in Sources */,
 				CDE559191EA57215006EBAD9 /* Person.m in Sources */,
 				CDE5591C1EA573C4006EBAD9 /* Employee.m in Sources */,
@@ -340,6 +362,7 @@
 				CDE559131EA5612A006EBAD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
