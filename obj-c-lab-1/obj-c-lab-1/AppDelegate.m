@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NSString+String.h"
+#import "Queue.h"
 
 @interface AppDelegate ()
 
@@ -33,6 +34,29 @@
     
     NSLog(@"This is a reversed string: %@",reverseString);
     
+    int i = 0;
+    
+    Queue *people = [[Queue alloc] init];
+    
+    NSArray *names = @[@"alex", @"grant",@"lebron",@"michael",@"steph",@"charlie",@"dave",@"tom"];
+    
+    [people setQueueSize:names.count];
+    while (i < 8) {
+        Person *person = [[Person alloc] init];
+        
+        [person setFirstName:names[i]];
+        
+        [people enqueue:person];
+        
+        i += 1;
+    }
+    
+    NSLog(@"This is a queue of people: %@\n The queue currently has %i", people, [people count]);
+    
+    
+    Person *firstPerson = [people dequeue];
+    
+    NSLog(@"%@",[firstPerson firstName]);
     
     return YES;
 }

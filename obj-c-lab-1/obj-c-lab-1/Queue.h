@@ -10,6 +10,14 @@
 #import "PersonQueue.h"
 @interface Queue : NSObject <PersonQueue>
 
+-(void) enqueue:(Person *)person;
 
+-(Person *) dequeue;
+
+-(int) count;
+
+-(void) printQueue;
+
+-(void)setQueueSize:(int) size;
 
 @end

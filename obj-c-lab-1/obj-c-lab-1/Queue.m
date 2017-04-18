@@ -13,13 +13,16 @@
 
 NSMutableArray *queue;
 
+-(void)setQueueSize:(int) size {
+    queue = [[NSMutableArray alloc] initWithCapacity:size];
+}
+
 -(void) enqueue:(Person *)person {
     [queue addObject:person];
 }
 
 -(Person *) dequeue {
     Person *dequeuedItem = queue[0];
-    
     //Removes first item
     [queue removeObjectAtIndex:0];
     return dequeuedItem;
@@ -27,6 +30,12 @@ NSMutableArray *queue;
 
 -(int) count {
     return queue.count;
+}
+
+-(void) printQueue {
+    for (int i = 0; i < queue.count; i++) {
+        NSLog(@"The Queue: %@",[queue[i] firstName]);
+    }
 }
 
 
