@@ -29,7 +29,7 @@ NSMutableArray *queue;
 }
 
 -(int) count {
-    return queue.count;
+    return (int)queue.count;
 }
 
 -(void) printQueue {

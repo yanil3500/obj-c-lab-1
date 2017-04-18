@@ -22,6 +22,7 @@
     return self;
 }
 
+//Makes a deep copy
 -(id)copyWithZone:(NSZone *)zone{
     Person *person = [[[self class] alloc]init];
     

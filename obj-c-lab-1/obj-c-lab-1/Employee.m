@@ -14,12 +14,14 @@
                         lastName:(NSString *)lastName
                           andAge:(NSNumber *)age
                    yearsEmployed:(NSNumber *)yearsEmployed
-                      andManager:(NSString *)managerName {
+                      andManager:(NSString *)managerName
+                       withEmail:(NSString *)email{
     self = [super initWithFirstName:firstName lastName:lastName andAge:age];
     if (self){
         _yearsEmployed = yearsEmployed;
         _managerName = managerName;
         _employeeNumber = [NSNumber numberWithInt:arc4random_uniform(1000)];
+        _email = email;
     }
     
     return self;
@@ -31,8 +33,10 @@
     [employee setEmployeeNumber: [self employeeNumber]];
     [employee setYearsEmployed: [self yearsEmployed]];
     [employee setManagerName: [self managerName]];
+    [employee setEmail: [self email]];
     
     return employee;
 }
+
 
 @end

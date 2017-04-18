@@ -10,7 +10,7 @@
 		CD1CCED01EA6879F0074D107 /* EmployeeDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1CCECF1EA6879F0074D107 /* EmployeeDatabase.m */; };
 		CDE558FF1EA5612A006EBAD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE558FE1EA5612A006EBAD9 /* main.m */; };
 		CDE559021EA5612A006EBAD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559011EA5612A006EBAD9 /* AppDelegate.m */; };
-		CDE559051EA5612A006EBAD9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559041EA5612A006EBAD9 /* ViewController.m */; };
+		CDE559051EA5612A006EBAD9 /* ViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559041EA5612A006EBAD9 /* ViewControlla.m */; };
 		CDE559081EA5612A006EBAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE559061EA5612A006EBAD9 /* Main.storyboard */; };
 		CDE5590A1EA5612A006EBAD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDE559091EA5612A006EBAD9 /* Assets.xcassets */; };
 		CDE5590D1EA5612A006EBAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE5590B1EA5612A006EBAD9 /* LaunchScreen.storyboard */; };
@@ -27,8 +27,8 @@
 		CDE558FE1EA5612A006EBAD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDE559001EA5612A006EBAD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CDE559011EA5612A006EBAD9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CDE559031EA5612A006EBAD9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CDE559041EA5612A006EBAD9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CDE559031EA5612A006EBAD9 /* ViewControlla.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControlla.h; sourceTree = "<group>"; };
+		CDE559041EA5612A006EBAD9 /* ViewControlla.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControlla.m; sourceTree = "<group>"; };
 		CDE559071EA5612A006EBAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDE559091EA5612A006EBAD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDE5590C1EA5612A006EBAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,8 +74,8 @@
 		CD1CCED21EA687D90074D107 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				CDE559031EA5612A006EBAD9 /* ViewController.h */,
-				CDE559041EA5612A006EBAD9 /* ViewController.m */,
+				CDE559031EA5612A006EBAD9 /* ViewControlla.h */,
+				CDE559041EA5612A006EBAD9 /* ViewControlla.m */,
 				CDE559061EA5612A006EBAD9 /* Main.storyboard */,
 				CDE559091EA5612A006EBAD9 /* Assets.xcassets */,
 				CDE5590B1EA5612A006EBAD9 /* LaunchScreen.storyboard */,
@@ -195,7 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDE559231EA57A50006EBAD9 /* Queue.m in Sources */,
-				CDE559051EA5612A006EBAD9 /* ViewController.m in Sources */,
+				CDE559051EA5612A006EBAD9 /* ViewControlla.m in Sources */,
 				CD1CCED01EA6879F0074D107 /* EmployeeDatabase.m in Sources */,
 				CDE559021EA5612A006EBAD9 /* AppDelegate.m in Sources */,
 				CDE559191EA57215006EBAD9 /* Person.m in Sources */,

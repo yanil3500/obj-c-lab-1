@@ -7,9 +7,27 @@
 //
 
 #import "EmployeeDatabase.h"
+#import "Employee.h"
+
+@interface EmployeeDatabase ()
+
+@property(strong, nonatomic) NSMutableArray *employees;
+
+@end
 
 @implementation EmployeeDatabase
 
++(instancetype)shared{
+    
+    
+    static EmployeeDatabase *shared = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [[[self class] alloc] init];
+    });
+    return shared;
+    
+}
 
 -(NSURL *)documentsDirectory{
     NSURL *documentsDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
@@ -19,6 +37,34 @@
 
 -(NSURL *) archiveURL {
     return [[self documentsDirectory] URLByAppendingPathComponent:@"archive"];
+}
+
+-(NSInteger)count{
+    return (NSInteger)_employees.count;
+}
+
+-(NSMutableArray *)allEmployees {
+    NSMutableArray *copyOf = [[NSMutableArray alloc] initWithArray:_employees copyItems:YES];
+    return copyOf;
+}
+-(Employee *)employeeAtIndex:(int)index{
+    return [_employees objectAtIndex: index];
+}
+-(void)remove:(Employee *)employee {
+    [_employees removeObject:employee];
+}
+-(void)removeAllEmployees{
+    [_employees removeAllObjects];
+}
+-(void)add:(Employee *)employee{
+    NSLog(@"Inside of EmployeeDatabase: %@",employee.firstName);
+    if ([_employees count] == 0){
+        _employees = [[NSMutableArray alloc] init];
+    }
+    [_employees addObject:employee];
+}
+-(void)removeEmployeeAtIndex:(int)index{
+    [_employees removeObjectAtIndex:index];
 }
 
 //Makes a deep copy
