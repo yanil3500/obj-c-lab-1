@@ -9,10 +9,11 @@
 #import "ViewControlla.h"
 #import "Employee.h"
 #import "EmployeeDatabase.h"
+#import "EmployeeCell.h"
+#define kRowHeight 50
 
 @interface ViewControlla () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation ViewControlla
@@ -42,6 +43,12 @@
     self.tableView.dataSource = self;
     
     // Do any additional setup after loading the view, typically from a nib.
+    UINib *employeeNib = [UINib nibWithNibName:@"EmployeeCell" bundle:[NSBundle mainBundle] ];
+    
+    
+    self.tableView.estimatedRowHeight = kRowHeight;
+    [[self tableView] setRowHeight:UITableViewAutomaticDimension];
+    [[self tableView] registerNib:employeeNib forCellReuseIdentifier:@"employeeCell"];
 }
 
 -(void)reloadData {
@@ -55,13 +62,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    EmployeeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"employeeCell" forIndexPath:indexPath];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cell"];
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+
+    cell.firstName.text = [@"First Name: " stringByAppendingString:[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] firstName]];
+    cell.lastName.text = [@"Last Name: " stringByAppendingString:[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] lastName]];
     
-   
+    cell.age.text = [@"Age: " stringByAppendingString:[[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] age] stringValue]];
+    cell.yearsEmployed.text = [@"# of Years Employed: " stringByAppendingString:[[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] yearsEmployed] stringValue]];
+    cell.managersName.text = [@"Manager's Name: " stringByAppendingString:[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] managerName]];
     
-    cell.textLabel.text = [[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] firstName];
+    cell.email.text = [@"Email: " stringByAppendingString:[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] email]];
     return cell;
 }
 
