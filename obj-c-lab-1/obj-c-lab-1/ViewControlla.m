@@ -10,17 +10,14 @@
 #import "Employee.h"
 #import "EmployeeDatabase.h"
 
-@interface ViewControlla () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewControlla () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property(strong, nonatomic) NSMutableArray *allEmployees;
+
 @end
 
 @implementation ViewControlla
 
 - (void)viewDidLoad {
-    if ([_allEmployees count] == 0){
-        _allEmployees = [[NSMutableArray alloc] init];
-    }
     [super viewDidLoad];
     Employee *newEmployeeOne = [[Employee alloc]initWithFirstName:@"aubrey" lastName:@"graham" andAge:@29 yearsEmployed:@9 andManager:@"Birdman" withEmail:@"email@example.com"];
     Employee *newEmployeeTwo = [[Employee alloc]initWithFirstName:@"sean" lastName:@"carter" andAge:@46 yearsEmployed:@12 andManager:@"Dame Dash" withEmail:@"email@example.com"];
@@ -29,15 +26,12 @@
     [[EmployeeDatabase shared] add:newEmployeeTwo];
     [[EmployeeDatabase shared] add:newEmployeeThree];
     
-    [_allEmployees addObjectsFromArray:[[EmployeeDatabase shared] allEmployees]];
+
     
     NSLog(@"Inside of viewDidLoad: count of employees: %ld", (long)[[EmployeeDatabase shared] count]);
     
-    self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    [[EmployeeDatabase shared]remove:newEmployeeOne];
-    [[self tableView] reloadData];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -50,19 +44,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cell"];
-    if (cell == nil) {
-         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
-    }
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+    
    
     
-    cell.textLabel.text = [_allEmployees[indexPath.row] firstName];
+    cell.textLabel.text = [[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] firstName];
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    NSLog(@"Inside of numberOfRowsInSection: %lu",(unsigned long)self.allEmployees.count);
-    return self.allEmployees.count;
+    NSLog(@"Inside of numberOfRowsInSection: %li",(long)[[EmployeeDatabase shared] count]);
+    return [[EmployeeDatabase shared] count];
 }
 
 
