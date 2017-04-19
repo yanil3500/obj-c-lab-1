@@ -33,10 +33,25 @@
 {
     self = [super init];
     if (self) {
-        self.employees = [[NSMutableArray alloc]init];
+        _employees = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfURL:[self archiveURL]]];
+        
+        //If there is nothing in the archive, then employees would be nil; Which mean we need to [[alloc]init] _employees
+        if (!_employees) {
+            _employees = [[NSMutableArray alloc]init];
+        }
+        
     }
     
     return self;
+}
+
+-(void)save{
+    BOOL success = [NSKeyedArchiver archiveRootObject:[self employees] toFile:[[self archiveURL] path]];
+    if (success){
+        NSLog(@"Saved employees to database.");
+    } else {
+        NSLog(@"Failed to save employees to database.");
+    }
 }
 
 -(NSURL *)documentsDirectory{
@@ -61,20 +76,26 @@
     return [_employees objectAtIndex: index];
 }
 -(void)remove:(Employee *)employee {
-    [_employees removeObject:employee];
+    if([_employees containsObject:employee]){
+        [_employees removeObject:employee];
+    }
+    [self save];
     NSLog(@"Inside of removeEmployee: (after removal) number of employees %lu",(unsigned long)_employees.count);
 }
 -(void)removeAllEmployees{
     [_employees removeAllObjects];
+    [self save];
 }
 -(void)add:(Employee *)employee{
-    [self willChangeValueForKey:@"count"];
     NSLog(@"Inside of EmployeeDatabase: %@",employee.firstName);
-    [_employees addObject:employee];
-    [self didChangeValueForKey:@"count"];
+    if(![_employees containsObject:employee]){
+        [_employees addObject:employee];
+        [self save];
+    }
 }
 -(void)removeEmployeeAtIndex:(int)index{
     [_employees removeObjectAtIndex:index];
+    [self save];
 }
 
 
