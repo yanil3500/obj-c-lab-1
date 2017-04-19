@@ -9,10 +9,10 @@
 #import "EmployeeDatabase.h"
 #import "Employee.h"
 
+
 @interface EmployeeDatabase ()
 
 @property(strong, nonatomic) NSMutableArray *employees;
-
 @end
 
 @implementation EmployeeDatabase
@@ -41,7 +41,7 @@
         }
         
     }
-    
+
     return self;
 }
 
@@ -78,8 +78,9 @@
 -(void)remove:(Employee *)employee {
     if([_employees containsObject:employee]){
         [_employees removeObject:employee];
+        [self save];
     }
-    [self save];
+    
     NSLog(@"Inside of removeEmployee: (after removal) number of employees %lu",(unsigned long)_employees.count);
 }
 -(void)removeAllEmployees{

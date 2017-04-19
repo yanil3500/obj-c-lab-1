@@ -18,14 +18,23 @@
 @implementation ViewControlla
 
 - (void)viewDidLoad {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"addedNewEmployee" object:nil];
     [super viewDidLoad];
+    
+    NSLog(@"All employees: %@", [[EmployeeDatabase shared] allEmployees]);
     Employee *newEmployeeOne = [[Employee alloc]initWithFirstName:@"aubrey" lastName:@"graham" andAge:@29 yearsEmployed:@9 andManager:@"Birdman" withEmail:@"email@example.com"];
     Employee *newEmployeeTwo = [[Employee alloc]initWithFirstName:@"sean" lastName:@"carter" andAge:@46 yearsEmployed:@12 andManager:@"Dame Dash" withEmail:@"email@example.com"];
     Employee *newEmployeeThree = [[Employee alloc]initWithFirstName:@"christopher" lastName:@"wallace" andAge:@46 yearsEmployed:@12 andManager:@"Puff Daddy" withEmail:@"email@example.com"];
-    [[EmployeeDatabase shared] add:newEmployeeOne];
-    [[EmployeeDatabase shared] add:newEmployeeTwo];
-    [[EmployeeDatabase shared] add:newEmployeeThree];
     
+    if([[EmployeeDatabase shared] count] == 0){
+        [[EmployeeDatabase shared] add:newEmployeeOne];
+        [[EmployeeDatabase shared] add:newEmployeeTwo];
+        [[EmployeeDatabase shared] add:newEmployeeThree];
+    } else {
+    
+    [[EmployeeDatabase shared] remove:newEmployeeThree];
+
+    }
 
     
     NSLog(@"Inside of viewDidLoad: count of employees: %ld", (long)[[EmployeeDatabase shared] count]);
@@ -33,6 +42,10 @@
     self.tableView.dataSource = self;
     
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+-(void)reloadData {
+    [[self tableView] reloadData];
 }
 
 
@@ -54,7 +67,6 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    NSLog(@"Inside of numberOfRowsInSection: %li",(long)[[EmployeeDatabase shared] count]);
     return [[EmployeeDatabase shared] count];
 }
 
