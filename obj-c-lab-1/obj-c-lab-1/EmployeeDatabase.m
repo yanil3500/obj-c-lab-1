@@ -19,7 +19,7 @@
 
 +(instancetype)shared{
     
-    
+
     static EmployeeDatabase *shared = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -27,6 +27,16 @@
     });
     return shared;
     
+}
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.employees = [[NSMutableArray alloc]init];
+    }
+    
+    return self;
 }
 
 -(NSURL *)documentsDirectory{
@@ -52,20 +62,21 @@
 }
 -(void)remove:(Employee *)employee {
     [_employees removeObject:employee];
+    NSLog(@"Inside of removeEmployee: (after removal) number of employees %lu",(unsigned long)_employees.count);
 }
 -(void)removeAllEmployees{
     [_employees removeAllObjects];
 }
 -(void)add:(Employee *)employee{
+    [self willChangeValueForKey:@"count"];
     NSLog(@"Inside of EmployeeDatabase: %@",employee.firstName);
-    if ([_employees count] == 0){
-        _employees = [[NSMutableArray alloc] init];
-    }
     [_employees addObject:employee];
+    [self didChangeValueForKey:@"count"];
 }
 -(void)removeEmployeeAtIndex:(int)index{
     [_employees removeObjectAtIndex:index];
 }
+
 
 //Makes a deep copy
 //-(id)copyWithZone:(NSZone *)zone {

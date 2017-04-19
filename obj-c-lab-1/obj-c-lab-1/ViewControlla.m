@@ -36,6 +36,8 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    [[EmployeeDatabase shared]remove:newEmployeeOne];
+    [[self tableView] reloadData];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
