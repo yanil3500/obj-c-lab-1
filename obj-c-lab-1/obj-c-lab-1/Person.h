@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Person : NSObject <NSCopying>
+@interface Person : NSObject <NSCopying>{
+    NSString *_firstName;
+    NSString *_lastName;
+    NSNumber *_age;
+}
 
-//@property automatically creates setters and getters
-@property(strong, nonatomic)NSString *firstName;
-@property(strong, nonatomic)NSString *lastName;
-@property(strong, nonatomic)NSNumber *age;
+
+-(NSString *)firstName;
+-(void)setFirstName:(NSString *)firstName;
+-(NSString *)lastName;
+-(void)setLastName:(NSString *)lastName;
+-(NSNumber *)age;
+-(void)setAge:(NSNumber *)age;
 
 -(instancetype)initWithFirstName:(NSString *)firstName
                         lastName:(NSString *)lastName

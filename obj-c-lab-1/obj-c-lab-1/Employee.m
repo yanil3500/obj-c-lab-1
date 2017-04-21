@@ -27,6 +27,51 @@
     return self;
 }
 
+-(NSNumber *)yearsEmployed{
+    return _yearsEmployed;
+}
+
+-(void)setYearsEmployed:(NSNumber *)yearsEmployed{
+    if(_yearsEmployed != yearsEmployed){
+        [yearsEmployed retain];
+        [_yearsEmployed release];
+        _yearsEmployed = yearsEmployed;
+    }
+}
+-(NSString *)managerName{
+    return _managerName;
+}
+
+-(void)setManagerName:(NSString *)managerName {
+    if(_managerName != managerName){
+        [managerName retain];
+        [_managerName release];
+        _managerName = managerName;
+    }
+}
+-(NSNumber *)employeeNumber{
+    return _employeeNumber;
+}
+
+-(void)setEmployeeNumber:(NSNumber *)employeeNumber{
+    if(_employeeNumber != employeeNumber){
+        [employeeNumber retain];
+        [_employeeNumber release];
+        _employeeNumber = employeeNumber;
+    }
+}
+-(NSString *)email{
+    return _email;
+}
+
+-(void)setEmail:(NSString *)email{
+    if(_email != email){
+        [email retain];
+        [_email release];
+        _email = email;
+    }
+}
+
 -(id)copyWithZone:(NSZone *)zone{
     Employee *employee = [super copyWithZone:zone];
     

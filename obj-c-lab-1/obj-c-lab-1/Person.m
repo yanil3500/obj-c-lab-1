@@ -22,6 +22,52 @@
     return self;
 }
 
+-(NSString *)firstName{
+    return _firstName;
+}
+
+-(void)setFirstName:(NSString *)firstName{
+    if (_firstName != firstName){
+        //Retain the reference that is being passed in
+        [firstName retain];
+        //Release the reference that is being overwritten
+        [_firstName release];
+        _firstName = firstName;
+        
+    }
+}
+
+-(NSString *)lastName{
+    return _lastName;
+}
+
+-(void)setLastName:(NSString *)lastName{
+    if(_lastName != lastName){
+        //Retain the reference that is being passed in
+        [lastName retain];
+        //Release the reference that is being overwritten
+        [_lastName release];
+        _lastName = lastName;
+    }
+}
+
+-(NSNumber *)age{
+    return _age;
+}
+
+-(void)setAge:(NSNumber *)age{
+    if(_age != age){
+        //Retain the reference that is being passed in
+        [age retain];
+        //Release the reference that is being overwritten
+        [_age release];
+        _age = age;
+    }
+}
+
+
+
+
 //Makes a deep copy
 -(id)copyWithZone:(NSZone *)zone{
     Person *person = [[[self class] alloc]init];
