@@ -16,6 +16,15 @@
     
 }
 
+-(NSNumber *)yearsEmployed;
+-(void)setYearsEmployed:(NSNumber *)yearsEmployed;
+-(NSString *)managerName;
+-(void)setManagerName:(NSString *)managerName;
+-(NSNumber *)employeeNumber;
+-(void)setEmployeeNumber:(NSNumber *)employeeNumber;
+-(NSString *)email;
+-(void)setEmail:(NSString *)email;
+
 -(instancetype)initWithFirstName:(NSString *)firstName
                         lastName:(NSString *)lastName
                           andAge:(NSNumber *)age

@@ -9,7 +9,7 @@
 #import "EmployeeDatabase.h"
 #import "Employee.h"
 
-
+static void *kvoContext = &kvoContext;
 @interface EmployeeDatabase ()
 
 @property(strong, nonatomic) NSMutableArray *employees;
@@ -34,7 +34,6 @@
     self = [super init];
     if (self) {
         _employees = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfURL:[self archiveURL]]];
-        
         //If there is nothing in the archive, then employees would be nil; Which mean we need to [[alloc]init] _employees
         if (!_employees) {
             _employees = [[NSMutableArray alloc]init];
@@ -44,6 +43,7 @@
 
     return self;
 }
+
 
 -(void)save{
     BOOL success = [NSKeyedArchiver archiveRootObject:[self employees] toFile:[[self archiveURL] path]];
@@ -64,7 +64,7 @@
     return [[self documentsDirectory] URLByAppendingPathComponent:@"archive"];
 }
 
--(NSInteger)count{
+-(NSInteger)counter{
     return (NSInteger)_employees.count;
 }
 
@@ -98,6 +98,8 @@
     [_employees removeObjectAtIndex:index];
     [self save];
 }
+
+
 
 
 //Makes a deep copy

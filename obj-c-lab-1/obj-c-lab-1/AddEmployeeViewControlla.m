@@ -32,7 +32,6 @@
 }
 
 
-
 - (Employee *)getEmployeeInfo{
     if([[self.firstName text] length] != 0 && [[self.lastName text] length] != 0 && [[self.age text] length] != 0 && [[self.yearsEmployed text] length] != 0 && [[self.managerName text] length] != 0 && [[self.email text] length] != 0){
         Employee *newEmployee = [[Employee alloc]initWithFirstName:[self.firstName text]
@@ -75,7 +74,7 @@
 - (IBAction)save:(UIBarButtonItem *)sender {
     [[EmployeeDatabase shared] add:[self getEmployeeInfo]];
     //Send notification to tableView that new employee has been added
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"addedNewEmployee" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload" object:nil];
     //Goes to previous view controller
    [self dismissViewControllerAnimated:YES completion:nil];
 }
