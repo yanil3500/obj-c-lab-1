@@ -10,7 +10,7 @@
 #import "Employee.h"
 #import "EmployeeDatabase.h"
 
-@interface AddEmployeeViewControlla ()
+@interface AddEmployeeViewControlla () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
 @property (weak, nonatomic) IBOutlet UITextField *age;
@@ -59,7 +59,6 @@
     if([string length]==0){
         return YES;
     }
-    NSLog(@"Inside shouldChangeCharactersInRange: %@", string);
     /*  limit to only numeric characters  */
     
     NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
