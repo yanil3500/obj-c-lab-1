@@ -91,7 +91,6 @@ static void *kvoContext = &kvoContext;
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[EmployeeDatabase shared] removeEmployeeAtIndex:(int)indexPath.row];
-        [self reloadTable] ;
     }
 }
 
@@ -107,6 +106,9 @@ static void *kvoContext = &kvoContext;
     }
 }
 
+
+
+//removes property observers
 -(void)dealloc{
     [EmployeeDatabase removeObserver:self forKeyPath:@"shared.numberOfEmployees"];
 }
