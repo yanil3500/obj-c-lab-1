@@ -9,9 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Employee.h"
 
-@interface EmployeeDatabase : NSObject 
+@interface EmployeeDatabase : NSObject {
+   int _numberOfEmployees;
+}
+
 
 +(instancetype)shared;
+
+-(int)numberOfEmployees;
 
 -(NSInteger)counter;
 
@@ -22,8 +27,6 @@
 -(void)add:(Employee *)employee;
 
 -(void)remove:(Employee *)employee;
-
--(NSInteger)count;
 
 -(void)removeEmployeeAtIndex:(int)index;
 

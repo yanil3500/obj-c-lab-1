@@ -12,7 +12,7 @@
 #import "EmployeeCell.h"
 #define kRowHeight 50
 
-
+static void *kvoContext = &kvoContext;
 @interface ViewControlla () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
@@ -20,7 +20,6 @@
 @implementation ViewControlla
 
 - (void)viewDidLoad {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTable) name:@"reload" object:nil];
     NSLog(@"Inside of viewDidLoad: The number of employees: %i", (int)EmployeeDatabase.shared.counter);
     [super viewDidLoad];
     
@@ -46,9 +45,7 @@
 }
 
 -(void)reloadTable{
-    NSLog(@"Inside of reloadTable");
     [self.tableView reloadData];
-    NSLog(@"After reload");
 }
 
 
@@ -56,6 +53,21 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [EmployeeDatabase addObserver:self forKeyPath:@"shared.numberOfEmployees" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:kvoContext];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+//    [EmployeeDatabase removeObserver:self forKeyPath:@"shared.numberOfEmployees"];
+}
+
+//Disables automatic kvo
++(BOOL)automaticallyNotifiesObserversOfTableView{
+    return NO;
+}
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     EmployeeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"employeeCell" forIndexPath:indexPath];
@@ -79,12 +91,24 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[EmployeeDatabase shared] removeEmployeeAtIndex:(int)indexPath.row];
-        [self.tableView reloadData];
+        [self reloadTable] ;
     }
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return true;
+    return YES;
+}
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if (context == kvoContext){
+        NSLog(@"The KVO is working!");
+        [self reloadTable];
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+-(void)dealloc{
+    [EmployeeDatabase removeObserver:self forKeyPath:@"shared.numberOfEmployees"];
 }
 
 @end

@@ -34,9 +34,11 @@ static void *kvoContext = &kvoContext;
     self = [super init];
     if (self) {
         _employees = [NSKeyedUnarchiver unarchiveObjectWithData:[NSData dataWithContentsOfURL:[self archiveURL]]];
+        _numberOfEmployees = (int)_employees.count;
         //If there is nothing in the archive, then employees would be nil; Which mean we need to [[alloc]init] _employees
         if (!_employees) {
             _employees = [[NSMutableArray alloc]init];
+            _numberOfEmployees = 0;
         }
         
     }
@@ -44,7 +46,12 @@ static void *kvoContext = &kvoContext;
     return self;
 }
 
-
+-(void)setNumberOfEmployees:(int)numberOfEmployees{
+    _numberOfEmployees = numberOfEmployees;
+}
+-(int)numberOfEmployees{
+    return _numberOfEmployees;
+}
 -(void)save{
     BOOL success = [NSKeyedArchiver archiveRootObject:[self employees] toFile:[[self archiveURL] path]];
     if (success){
@@ -78,6 +85,7 @@ static void *kvoContext = &kvoContext;
 -(void)remove:(Employee *)employee {
     if([_employees containsObject:employee]){
         [_employees removeObject:employee];
+        [self setNumberOfEmployees:(int)_employees.count];
         [self save];
     }
     
@@ -85,17 +93,20 @@ static void *kvoContext = &kvoContext;
 }
 -(void)removeAllEmployees{
     [_employees removeAllObjects];
+    [self setNumberOfEmployees:(int)_employees.count];
     [self save];
 }
 -(void)add:(Employee *)employee{
     NSLog(@"Inside of EmployeeDatabase: %@",employee.firstName);
     if(![_employees containsObject:employee]){
         [_employees addObject:employee];
+        [self setNumberOfEmployees:(int)_employees.count];
         [self save];
     }
 }
 -(void)removeEmployeeAtIndex:(int)index{
     [_employees removeObjectAtIndex:index];
+    [self setNumberOfEmployees:(int)_employees.count];
     [self save];
 }
 

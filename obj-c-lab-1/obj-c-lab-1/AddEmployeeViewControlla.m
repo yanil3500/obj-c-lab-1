@@ -10,6 +10,7 @@
 #import "Employee.h"
 #import "EmployeeDatabase.h"
 
+
 @interface AddEmployeeViewControlla () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstName;
 @property (weak, nonatomic) IBOutlet UITextField *lastName;
@@ -52,6 +53,10 @@
     return nil;
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+
 //Courtesy of Stack Overflow
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     /* for backspace */
@@ -74,7 +79,6 @@
 - (IBAction)save:(UIBarButtonItem *)sender {
     [[EmployeeDatabase shared] add:[self getEmployeeInfo]];
     //Send notification to tableView that new employee has been added
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reload" object:nil];
     //Goes to previous view controller
    [self dismissViewControllerAnimated:YES completion:nil];
 }
