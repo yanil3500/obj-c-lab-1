@@ -19,7 +19,7 @@
 
 //Create another method in the same category that is a class method that takes in a NSString and returns the same NSString but reversed.
 +(NSString *) reversedString:(NSString *)inputString {
-    int lengthOfString = [inputString length];
+    int lengthOfString = (int)[inputString length];
     NSMutableString *reversed = [NSMutableString string];
     while (lengthOfString > 0) {
         lengthOfString--;

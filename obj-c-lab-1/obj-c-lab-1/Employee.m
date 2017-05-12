@@ -10,32 +10,33 @@
 
 @implementation Employee
 
-NSNumber * _employeeNumber;
-NSNumber * _yearsEmployed;
-NSString * _managerName;
-
-- (NSNumber *) employeeNumber {
-    return _employeeNumber;
+-(instancetype)initWithFirstName:(NSString *)firstName
+                        lastName:(NSString *)lastName
+                          andAge:(NSNumber *)age
+                   yearsEmployed:(NSNumber *)yearsEmployed
+                      andManager:(NSString *)managerName
+                       withEmail:(NSString *)email{
+    self = [super initWithFirstName:firstName lastName:lastName andAge:age];
+    if (self){
+        _yearsEmployed = yearsEmployed;
+        _managerName = managerName;
+        _employeeNumber = [NSNumber numberWithInt:arc4random_uniform(1000)];
+        _email = email;
+    }
+    
+    return self;
 }
 
-- (void) setEmployeeNumber:(NSNumber *) employeeNum {
-    _employeeNumber = employeeNum;
+-(id)copyWithZone:(NSZone *)zone{
+    Employee *employee = [super copyWithZone:zone];
+    
+    [employee setEmployeeNumber: [self employeeNumber]];
+    [employee setYearsEmployed: [self yearsEmployed]];
+    [employee setManagerName: [self managerName]];
+    [employee setEmail: [self email]];
+    
+    return employee;
 }
 
-- (NSNumber *) yearsEmployed {
-    return _yearsEmployed;
-}
-
-- (void) setYearsEmployed:(NSNumber *) years {
-    _yearsEmployed = years;
-}
-
-- (NSString *) managerName {
-    return _managerName;
-}
-
-- (void) setManagerName:(NSString *) managerName {
-    _managerName = managerName;
-}
 
 @end
