@@ -38,5 +38,31 @@
     return employee;
 }
 
+-(instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super init];
+    
+    if (self){
+        self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
+        self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
+        self.age = [aDecoder decodeObjectForKey:@"age"];
+        self.yearsEmployed = [aDecoder decodeObjectForKey:@"yearsEmployed"];
+        self.email = [aDecoder decodeObjectForKey:@"email"];
+        self.employeeNumber = [aDecoder decodeObjectForKey:@"employeeNumber"];
+        self.managerName = [aDecoder decodeObjectForKey:@"managerName"];
+    }
+    
+    return self;
+}
+-(void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:[self firstName] forKey:@"firstName"];
+    [aCoder encodeObject:[self lastName] forKey:@"lastName"];
+    [aCoder encodeObject:[self age] forKey:@"age"];
+    [aCoder encodeObject:[self yearsEmployed] forKey:@"yearsEmployed"];
+    [aCoder encodeObject:[self email] forKey:@"email"];
+    [aCoder encodeObject:[self employeeNumber] forKey:@"employeeNumber"];
+    [aCoder encodeObject:[self managerName] forKey:@"managerName"];
+}
+
+
 
 @end

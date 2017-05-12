@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD163F151EA814D60094092F /* EmployeeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD163F131EA814D60094092F /* EmployeeCell.m */; };
+		CD163F161EA814D60094092F /* EmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD163F141EA814D60094092F /* EmployeeCell.xib */; };
 		CD1CCED01EA6879F0074D107 /* EmployeeDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1CCECF1EA6879F0074D107 /* EmployeeDatabase.m */; };
+		CDA4FEBB1EA7FEE600BE97CB /* AddEmployeeViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA4FEBA1EA7FEE600BE97CB /* AddEmployeeViewControlla.m */; };
 		CDE558FF1EA5612A006EBAD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE558FE1EA5612A006EBAD9 /* main.m */; };
 		CDE559021EA5612A006EBAD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559011EA5612A006EBAD9 /* AppDelegate.m */; };
 		CDE559051EA5612A006EBAD9 /* ViewControlla.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE559041EA5612A006EBAD9 /* ViewControlla.m */; };
@@ -21,8 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD163F121EA814D60094092F /* EmployeeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeCell.h; sourceTree = "<group>"; };
+		CD163F131EA814D60094092F /* EmployeeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeCell.m; sourceTree = "<group>"; };
+		CD163F141EA814D60094092F /* EmployeeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmployeeCell.xib; sourceTree = "<group>"; };
 		CD1CCECE1EA6879F0074D107 /* EmployeeDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeDatabase.h; sourceTree = "<group>"; };
 		CD1CCECF1EA6879F0074D107 /* EmployeeDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeDatabase.m; sourceTree = "<group>"; };
+		CDA4FEB91EA7FEE600BE97CB /* AddEmployeeViewControlla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEmployeeViewControlla.h; sourceTree = "<group>"; };
+		CDA4FEBA1EA7FEE600BE97CB /* AddEmployeeViewControlla.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEmployeeViewControlla.m; sourceTree = "<group>"; };
 		CDE558FA1EA5612A006EBAD9 /* obj-c-lab-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "obj-c-lab-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE558FE1EA5612A006EBAD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDE559001EA5612A006EBAD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -76,7 +84,12 @@
 			children = (
 				CDE559031EA5612A006EBAD9 /* ViewControlla.h */,
 				CDE559041EA5612A006EBAD9 /* ViewControlla.m */,
+				CD163F121EA814D60094092F /* EmployeeCell.h */,
+				CD163F131EA814D60094092F /* EmployeeCell.m */,
+				CD163F141EA814D60094092F /* EmployeeCell.xib */,
 				CDE559061EA5612A006EBAD9 /* Main.storyboard */,
+				CDA4FEB91EA7FEE600BE97CB /* AddEmployeeViewControlla.h */,
+				CDA4FEBA1EA7FEE600BE97CB /* AddEmployeeViewControlla.m */,
 				CDE559091EA5612A006EBAD9 /* Assets.xcassets */,
 				CDE5590B1EA5612A006EBAD9 /* LaunchScreen.storyboard */,
 			);
@@ -182,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDE5590D1EA5612A006EBAD9 /* LaunchScreen.storyboard in Resources */,
+				CD163F161EA814D60094092F /* EmployeeCell.xib in Resources */,
 				CDE5590A1EA5612A006EBAD9 /* Assets.xcassets in Resources */,
 				CDE559081EA5612A006EBAD9 /* Main.storyboard in Resources */,
 			);
@@ -197,11 +211,13 @@
 				CDE559231EA57A50006EBAD9 /* Queue.m in Sources */,
 				CDE559051EA5612A006EBAD9 /* ViewControlla.m in Sources */,
 				CD1CCED01EA6879F0074D107 /* EmployeeDatabase.m in Sources */,
+				CD163F151EA814D60094092F /* EmployeeCell.m in Sources */,
 				CDE559021EA5612A006EBAD9 /* AppDelegate.m in Sources */,
 				CDE559191EA57215006EBAD9 /* Person.m in Sources */,
 				CDE5591C1EA573C4006EBAD9 /* Employee.m in Sources */,
 				CDE559161EA56244006EBAD9 /* NSString+String.m in Sources */,
 				CDE558FF1EA5612A006EBAD9 /* main.m in Sources */,
+				CDA4FEBB1EA7FEE600BE97CB /* AddEmployeeViewControlla.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
