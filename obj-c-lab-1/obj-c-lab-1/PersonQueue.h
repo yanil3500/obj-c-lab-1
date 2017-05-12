@@ -14,7 +14,7 @@
 //count(optional): Takes no arguments, returns an int
 
 
-@protocol PersonQueue <Person>
+@protocol PersonQueue
 
 
 @required
