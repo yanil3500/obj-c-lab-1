@@ -9,23 +9,33 @@
 #import "ViewControlla.h"
 #import "Employee.h"
 #import "EmployeeDatabase.h"
+#import "EmployeeCell.h"
+#define kRowHeight 50
 
 @interface ViewControlla () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation ViewControlla
 
 - (void)viewDidLoad {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"addedNewEmployee" object:nil];
     [super viewDidLoad];
+    
+    NSLog(@"All employees: %@", [[EmployeeDatabase shared] allEmployees]);
     Employee *newEmployeeOne = [[Employee alloc]initWithFirstName:@"aubrey" lastName:@"graham" andAge:@29 yearsEmployed:@9 andManager:@"Birdman" withEmail:@"email@example.com"];
     Employee *newEmployeeTwo = [[Employee alloc]initWithFirstName:@"sean" lastName:@"carter" andAge:@46 yearsEmployed:@12 andManager:@"Dame Dash" withEmail:@"email@example.com"];
     Employee *newEmployeeThree = [[Employee alloc]initWithFirstName:@"christopher" lastName:@"wallace" andAge:@46 yearsEmployed:@12 andManager:@"Puff Daddy" withEmail:@"email@example.com"];
-    [[EmployeeDatabase shared] add:newEmployeeOne];
-    [[EmployeeDatabase shared] add:newEmployeeTwo];
-    [[EmployeeDatabase shared] add:newEmployeeThree];
     
+    if([[EmployeeDatabase shared] count] == 0){
+        [[EmployeeDatabase shared] add:newEmployeeOne];
+        [[EmployeeDatabase shared] add:newEmployeeTwo];
+        [[EmployeeDatabase shared] add:newEmployeeThree];
+    } else {
+    
+    [[EmployeeDatabase shared] remove:newEmployeeThree];
+
+    }
 
     
     NSLog(@"Inside of viewDidLoad: count of employees: %ld", (long)[[EmployeeDatabase shared] count]);
@@ -33,6 +43,16 @@
     self.tableView.dataSource = self;
     
     // Do any additional setup after loading the view, typically from a nib.
+    UINib *employeeNib = [UINib nibWithNibName:@"EmployeeCell" bundle:[NSBundle mainBundle] ];
+    
+    
+    self.tableView.estimatedRowHeight = kRowHeight;
+    [[self tableView] setRowHeight:UITableViewAutomaticDimension];
+    [[self tableView] registerNib:employeeNib forCellReuseIdentifier:@"employeeCell"];
+}
+
+-(void)reloadData {
+    [[self tableView] reloadData];
 }
 
 
@@ -42,19 +62,22 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    EmployeeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"employeeCell" forIndexPath:indexPath];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"cell"];
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+
+    cell.firstName.text = [@"First Name: " stringByAppendingString:[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] firstName]];
+    cell.lastName.text = [@"Last Name: " stringByAppendingString:[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] lastName]];
     
-   
+    cell.age.text = [@"Age: " stringByAppendingString:[[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] age] stringValue]];
+    cell.yearsEmployed.text = [@"# of Years Employed: " stringByAppendingString:[[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] yearsEmployed] stringValue]];
+    cell.managersName.text = [@"Manager's Name: " stringByAppendingString:[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] managerName]];
     
-    cell.textLabel.text = [[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] firstName];
+    cell.email.text = [@"Email: " stringByAppendingString:[[[EmployeeDatabase shared] employeeAtIndex:(int)indexPath.row] email]];
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    NSLog(@"Inside of numberOfRowsInSection: %li",(long)[[EmployeeDatabase shared] count]);
     return [[EmployeeDatabase shared] count];
 }
 
